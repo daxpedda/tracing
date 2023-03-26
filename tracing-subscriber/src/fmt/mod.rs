@@ -622,6 +622,14 @@ where
         }
     }
 
+    /// Disable ANSI terminal colors. Available even without the `ansi` crate feature.
+    pub fn disable_ansi(self) -> SubscriberBuilder<N, format::Format<L, T>, F, W> {
+        SubscriberBuilder {
+            inner: self.inner.disable_ansi(),
+            ..self
+        }
+    }
+
     /// Sets whether to write errors from [`FormatEvent`] to the writer.
     /// Defaults to true.
     ///

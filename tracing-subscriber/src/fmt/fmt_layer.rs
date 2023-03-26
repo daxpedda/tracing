@@ -283,6 +283,14 @@ impl<S, N, E, W> Layer<S, N, E, W> {
         }
     }
 
+    /// Disable ANSI terminal colors. Available even without the `ansi` crate feature.
+    pub fn disable_ansi(self) -> Self {
+        Self {
+            is_ansi: false,
+            ..self
+        }
+    }
+
     /// Sets whether to write errors from [`FormatEvent`] to the writer.
     /// Defaults to true.
     ///
